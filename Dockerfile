@@ -698,6 +698,7 @@ WORKDIR /initramfs
 COPY --from=squashfs-amd64 /rootfs.sqsh .
 COPY --from=init-build-amd64 /init .
 # copying over firmware binary blobs to initramfs
+COPY --from=pkg-linux-firmware /lib/firmware/qed ./lib/firmware/qed
 COPY --from=pkg-linux-firmware /lib/firmware/bnx2 ./lib/firmware/bnx2
 COPY --from=pkg-linux-firmware /lib/firmware/bnx2x ./lib/firmware/bnx2x
 # the intel ice pkg file from linux-firmware has the version appended to it, but kernel only looks up ice.pkg
